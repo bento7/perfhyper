@@ -23,6 +23,6 @@ plt.grid()
 plt.ylabel('f (Hz)')
 plt.xlabel('t (sec)')
 plt.subplot(112)
+affiche_spectre(1E-6, len(t), c)
 
 plt.show()
-# affiche_spectre(1E-6, len(t), c)
