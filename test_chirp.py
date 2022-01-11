@@ -25,4 +25,4 @@ plt.xlabel('t (sec)')
 plt.subplot(112)
 
 plt.show()
-# affiche_spectre(1E-6, len(t), c)
+affiche_spectre(1E-6, len(t), c)
