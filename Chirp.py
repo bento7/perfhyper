@@ -21,6 +21,9 @@ class chirp():
 
 
     def norm(self,num):
+        print(np.max(chirp500.Msent))
+        print(np.max(chirp500.Mrec))
+
         """
         fonction servant à normaliser les amplitudes du signal émis et reçu pour pouvoir
         les comparer correctement. Leurs amplitudes diffèrent grandement initialement.
@@ -83,6 +86,10 @@ class chirp():
     def distance(self,s0,s1):
         interval = u.rising_edge(s1)-u.rising_edge(s0)
         dist = interval*self.T*3e8/2
+        # f = open("manim/distance.txt", "w")
+        # str = str(self.fsamp) + " " + str()
+        # f.write("Now the file has more content!")
+        # f.close()
         return dist.round(3)
 
 if __name__ == '__main__':
