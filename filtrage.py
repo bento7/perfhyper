@@ -24,11 +24,11 @@ def correlationMatrix(Me, Mr):
     """
     N = np.shape(Mr)[0]
 
-    s = Me.tolist()
-    r = Mr.tolist()
+    # s = Me.tolist()
+    # r = Mr.tolist()
     lcorrelation = []
     for i in range(N):
-        lcorrelation.append(signal.correlate(s[i], r[i]))
+        lcorrelation.append(signal.correlate(Me[0][i], Mr[0][i]))
     Ml = np.asarray(lcorrelation)
     return Ml
 

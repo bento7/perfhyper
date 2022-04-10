@@ -48,12 +48,10 @@ def receivedSignalToMatrix(signal, Fsamp, Trec):
     print('N =' + str(N))
     print('len sig ' + str(len(signal)))
 
-
     Npuls = int(len(signal) // N)
     M = np.zeros((Npuls, N))
 
     for i in range(Npuls):
-
         for j in range(N):
             M[i][j] = signalCopy[i*N+j]
     return M

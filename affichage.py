@@ -2,19 +2,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def affiche_signal(Te, Ne, u0, u01):
+def affiche_signal(Te, fsamp, u0, u01):
     # Le signal est échantillonné sur une durée T plus grande que sa période
     #le zero-padding n'apporte pas une plus grande précision spectrale
-    t0 = np.arange(0, Te * Ne, Te)
-    t01 = np.arange(0, Te * Ne, Te)
+    # t0 = np.arange(0, Te, 1/fsamp)
+    # t01 = np.arange(0, Te, 1/fsamp)
 
-    plt.figure()
+    fig, ax = plt.subplots(2)
     plt.title('Affichage du Signal')
-    plt.xlabel('t (s)')
-    plt.ylabel('u (V)')
-    plt.grid()
-    plt.plot(t0,u0,label="émis")
-    plt.plot(t0,u01,label="reçu")
+    ax[1].set_xlabel('t (s)')
+    ax[0].set_ylabel('u (V)')
+    ax[1].set_ylabel('u (V)')
+
+    # plt.grid()
+    ax[0].plot(u0,label="émis")
+    ax[1].plot(u01,label="reçu")
     plt.show()
     # #affichage du signal avec zero-padding
     # plt.plot(t01, u01)

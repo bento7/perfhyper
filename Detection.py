@@ -55,7 +55,6 @@ def MatrixCFAR(Mi, nb_entrainement, nb_garde, taux_fa):
     lcibles = []
     for i in range(N):
         print('incrément i=' + str(i))
-
         lsignal = Mi[i]
         lcibles.append(CFAR(lsignal, nb_entrainement, nb_garde, taux_fa))
     Mcibles = np.asarray(lcibles)
