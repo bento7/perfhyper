@@ -21,7 +21,7 @@ Pour seulement traiter les données :
 Tous les fichiers de mesures sont des fichiers .txt à deux colonnes. La première représente le signal émis et la seconde le signal reçu après réflexion sur une cible. Ils sont tous regroupés dans le dossier /data. La fréquence dans le nom de fichier représente la bande passante du chirp utilisé dans la forme d'ondes.
 
 ## Documents
-Vous trouverez dans la rubrique/Documents-utiles les diagrammes de gantt ainsi que notre rapport de projet au format pdf.
+Vous trouverez dans la rubrique/Documents-utiles les diagrammes de gant, notre rapport de projet au format pdf ainsi que nos rapports de réunion au cours du semestre.
 
 ## Tests Unitaires
 Ils s'intéressent aux algorithmes de post-traitement des données. Unittest est utilisé afin de mener à bien la varification de bon fonctionnement des fonctions.
