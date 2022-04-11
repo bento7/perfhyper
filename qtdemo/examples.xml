@@ -1,40 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <categories name="Projet PerfHyper">
-  <category dirname="distance" name="Mesure de la distance">
-
-    <example filename="acquisition.py" name="Acquisition" />
-
+  <category dirname="Le RADAR" name="Le RADAR">
   </category>
-  <category dirname="animation" name="Animation Framework">
-    <example filename="animatedtiles" name="Animated Tiles" />
-    <example filename="appchooser" name="Appchooser" />
-    <example filename="easing" name="Easing Curves" />
-    <example filename="moveblocks" name="Moving Blocks" />
-    <example filename="states" name="States" />
-    <example filename="stickman" name="Stickman" />
+  <category dirname="Utilisation" name="Animation Framework">
   </category>
-  <category dirname="quick" name="Quick">
+ <category dirname="K6 Impulser Software" name="Acquisition">
     <example filename="animation" name="Animation" />
-    <example filename="canvas" name="Canvas" />
-    <example filename="models/abstractitemmodel" name="Abstract Item Model" />
-    <example filename="models/objectlistmodel" name="Object List Model" />
-    <example filename="models/stringlistmodel" name="String List Model" />
-    <example filename="scenegraph/customgeometry" name="Custom Geometry" />
+
   </category>
-  <category dirname="quick/tutorials/extending" name="Quick Tutorial">
-    <example filename="chapter1-basics" name="Basics" />
-    <example filename="chapter2-methods" name="Methods" />
-    <example filename="chapter3-bindings" name="Bindings" />
-    <example filename="chapter4-customPropertyTypes" name="Custom Property Types" />
-    <example filename="chapter5-listproperties" name="List Properties" />
-    <example filename="chapter6-plugins/app" name="Plugins" executable="false" qml="true" />
+  <category dirname="distance" name="Mesure de la distance">
+    <example filename="acquisition.py" name="Acquisition" image="Acquisition.png"/>
+<!--    <example filename=""-->
   </category>
-  <category dirname="designer" name="Qt Designer">
-    <example filename="calculatorform" name="Calculator Form" />
-    <example filename="plugins" name="Custom Widget Plugins" />
+
+  <category dirname="quick" name="Traitements numériques">
+    <example filename="animation" name="Animation" />
   </category>
-  <category dirname="desktop" name="Desktop">
-    <example filename="systray" name="System Tray" image="systemtray-example.png"/>
-    <example filename="screenshot" name="Screenshot" />
-  </category>
+
 </categories>
