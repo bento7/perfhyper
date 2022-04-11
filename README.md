@@ -8,7 +8,7 @@ Placez vous à la racine du projet et lancez la commande suivante pour lancer l'
 ```bash
 /perfhyper >> python3 qtdemo/qtdemo.py
 ```
-
+![Image Text](https://github.com/bento7/perfhyper/blob/main/Documents-utiles/interface.png)
 
 Pour seulement traiter les données :
 ```bash
