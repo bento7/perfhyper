@@ -120,7 +120,7 @@ class MenuContentItem(DemoItem):
         bgcolor = Colors.sceneBg1.darker(200)
         bgcolor.setAlpha(100)
         self.description1 = DemoTextItem(para1, Colors.contentFont(),
-                Colors.heading, 500, self, DemoTextItem.STATIC_TEXT)
+                Colors.heading, 700, self, DemoTextItem.STATIC_TEXT)
         self.description2 = DemoTextItem(self.loadDescription(1, 2),
                 Colors.contentFont(), Colors.heading, 250, self,
                 DemoTextItem.STATIC_TEXT)

@@ -42,8 +42,8 @@
 
 from xml.dom.minidom import parseString
 
-from PyQt5.QtCore import QRectF, QRegExp, Qt
-from PyQt5.QtGui import QImage
+from PyQt5.QtCore import QRectF, QRegExp, Qt, QFile, QTextStream
+from PyQt5.QtGui import QImage, QPainter
 
 from colors import Colors
 from demoitem import DemoItem
@@ -82,23 +82,41 @@ class ExampleContent(DemoItem):
             self._prepared = False
 
     def loadDescription(self):
-        contents = self._menu_manager.getHtml(self.name).data().decode('utf8')
-        if contents == '':
-            paragraphs = []
-        else:
-            exampleDoc = parseString(contents)
-            paragraphs = exampleDoc.getElementsByTagName('p')
+        print(self._menu_manager.getHtml(self.name))
+        contents = self._menu_manager.getHtml(self.name)#.data().decode('utf8')
+        print('CFAR = ' + self.name)
+        # if contents == '':
+        #     paragraphs = []
+        # else:
+        #     exampleDoc = parseString(contents)
+        #     paragraphs = exampleDoc.getElementsByTagName('p')
+        #
+        # if len(paragraphs) < 1:
+        #     Colors.debug("- ExampleContent.loadDescription(): Could not load description:", self._menu_manager.info[self.name].get('docfile'))
+        #
+        # description = Colors.contentColor + "Could not load description. wtf Ensure that the documentation for Qt is built."
+        # for p in paragraphs:
+        #     description = self.extractTextFromParagraph(p)
+        #     if self.isSummary(description):
+        #         break
+        readme = QFile(contents)
 
-        if len(paragraphs) < 1:
-            Colors.debug("- ExampleContent.loadDescription(): Could not load description:", self._menu_manager.info[self.name].get('docfile'))
+        in_str = QTextStream(readme)
+        in_str.setCodec("UTF-8")
 
-        description = Colors.contentColor + "Could not load description. wtf Ensure that the documentation for Qt is built."
-        for p in paragraphs:
-            description = self.extractTextFromParagraph(p)
-            if self.isSummary(description):
+        # Read in the number of wanted paragraphs.
+        result = ''
+        line = in_str.readLine()
+        print(line)
+        while True:
+            result += line + " "
+            line = in_str.readLine()
+            if in_str.atEnd():
                 break
+        print(result)
+        return Colors.contentColor + result
 
-        return Colors.contentColor + description
+        # return Colors.contentColor + description
 
     def isSummary(self, text):
         re = QRegExp("(In )?((The|This) )?(%s )?.*(tutorial|example|demo|application)" % self.name, Qt.CaseInsensitive)
@@ -140,12 +158,13 @@ class ExampleContent(DemoItem):
         self.description = DemoTextItem(self.loadDescription(),
                 Colors.contentFont(), Colors.heading, 500, self)
         imgHeight = 340 - int(self.description.boundingRect().height()) + 50
-        self.screenshot = ImageItem(QImage.fromData(self._menu_manager.getImage(self.name)), 550, imgHeight, self)
+
+        self.screenshot = ImageItem(self._menu_manager.getImage(self.name), 600, imgHeight, self)
 
         # Place the items on screen.
         self.heading.setPos(0, 3)
         self.description.setPos(0, self.heading.pos().y() + self.heading.boundingRect().height() + 10)
-        self.screenshot.setPos(0, self.description.pos().y() + self.description.boundingRect().height() + 10)
+        self.screenshot.setPos(0, self.heading.pos().y() + self.heading.boundingRect().height() + 10)
 
     def boundingRect(self):
         return QRectF(0, 0, 500, 100)

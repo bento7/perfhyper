@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <categories name="Projet PerfHyper">
-  <category dirname="Le RADAR" name="Le RADAR">
+  <category dirname="RADAR" name="Le RADAR">
   </category>
   <category dirname="Utilisation" name="Animation Framework">
   </category>
@@ -9,12 +9,13 @@
 
   </category>
   <category dirname="distance" name="Mesure de la distance">
-    <example filename="acquisition.py" name="Acquisition" image="Acquisition.png"/>
+    <example filename="Acquisition" name="Acquisition" image="Acquisition"/>
 <!--    <example filename=""-->
+
   </category>
 
-  <category dirname="quick" name="Traitements numériques">
-    <example filename="animation" name="Animation" />
+  <category dirname="traitements_numeriques" name="Traitements numériques">
+    <example filename="CFAR" name="CFAR" />
   </category>
 
 </categories>

@@ -291,7 +291,6 @@ class MainWindow(QGraphicsView):
         self.background = QPixmap(qRound(r.width()), qRound(r.height()))
         self.background.fill(Qt.black)
         painter = QPainter(self.background)
-
         bg = QImage(self.imagesDir + '/demobg.png')
         painter.drawImage(0, 0, bg)
 

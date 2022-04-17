@@ -56,6 +56,7 @@ class ImageItem(DemoItem):
         self.maxHeight = maxHeight
         self.adjustSize = adjustSize
         self.scale = scale
+        
 
     def createImage(self, transform):
         original = QImage(self.image)

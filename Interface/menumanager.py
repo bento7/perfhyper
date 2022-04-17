@@ -41,6 +41,7 @@
 
 
 import sys
+import os
 from xml.dom.minidom import parseString
 
 from PyQt5.QtCore import (QByteArray, QDir, QEasingCurve, QFile, QFileInfo,
@@ -87,7 +88,6 @@ class MenuManager(QGraphicsObject):
         self.currentMenuCode = -1
         self.readXmlDocument()
 
-        self.text = QPlainTextEdit()
 
     @classmethod
     def instance(cls):
@@ -283,62 +283,43 @@ class MenuManager(QGraphicsObject):
         cmd_str = QTextStream(self.assistantProcess)
         cmd_str << 'SetSource ' << url << '\n'
 
-    def message(self, s):
-        self.text.appendPlainText(s)
+
 
     def launchExample(self, name):
         # if self.p is None:  # No process running.
-        self.p = QProcess()  # Keep a reference to the QProcess (e.g. on self) while it's running.
-        # executable = self.resolveExeFile(name)
+        # self.p = QProcess()  # Keep a reference to the QProcess (e.g. on self) while it's running.
+        executable = self.resolveExeFile(name)
+        process = QProcess(self)
+        Colors.debug("Launching:", executable)
+        process.start('python3 ', [executable])
+        # process.error.connect(self.launchError)
 
-        print(name)
-        self.p.error.connect(self.launchError)
+        # self.p.error.connect(self.launchError)
         # print(executable)
-        if sys.platform == 'win32':
-            # Make sure it finds the DLLs on Windows.
-            env = QProcessEnvironment.systemEnvironment()
-            env.insert('PATH',
-                    QLibraryInfo.location(QLibraryInfo.BinariesPath) + ';' +
-                            env.value('PATH'))
-            self.p.setProcessEnvironment(env)
+        # if sys.platform == 'win32':
+        #     # Make sure it finds the DLLs on Windows.
+        #     env = QProcessEnvironment.systemEnvironment()
+        #     env.insert('PATH',
+        #             QLibraryInfo.location(QLibraryInfo.BinariesPath) + ';' +
+        #                     env.value('PATH'))
+        #     self.p.setProcessEnvironment(env)
+        # if self.info[name]['changedirectory'] != 'false':
+        #     workingDirectory = self.resolveDataDir(name)
+        #     self.p.setWorkingDirectory(workingDirectory)
+        #     Colors.debug("Setting working directory:", workingDirectory)
+        # os.system("python3 "+str(executable))
+        # exe = '..\\distance\\' + executable
 
-        if self.info[name]['changedirectory'] != 'false':
-            workingDirectory = self.resolveDataDir(name)
-            self.p.setWorkingDirectory(workingDirectory)
-            Colors.debug("Setting working directory:", workingDirectory)
-        name = name + ".py"
-        # Colors.debug("Launching:", executable)
-        # process.start("python3", [executable])
-        print('executing')
-        self.message("Executing process")
-        self.p.readyReadStandardOutput.connect(self.handle_stdout)
-        self.p.readyReadStandardError.connect(self.handle_stderr)
-        self.p.stateChanged.connect(self.handle_state)
-        self.p.finished.connect(self.process_finished)  # Clean up once complete.
-        self.p.start("python3", [name])
+        # self.message("Executing process")
+        # self.p.readyReadStandardOutput.connect(self.handle_stdout)
+        # self.p.readyReadStandardError.connect(self.handle_stderr)
+        # self.p.stateChanged.connect(self.handle_state)
+        # self.p.finished.connect(self.process_finished)  # Clean up once complete.
+        # self.p.start("python3", [name])
 
     def boundingRect(self):
         return QRectF(0, 0, 500, 350)
 
-    def handle_stderr(self):
-        data = self.p.readAllStandardError()
-        stderr = bytes(data).decode("utf8")
-        self.message(stderr)
-
-    def handle_stdout(self):
-        data = self.p.readAllStandardOutput()
-        stdout = bytes(data).decode("utf8")
-        self.message(stdout)
-
-
-    def handle_state(self, state):
-        states = {
-            QProcess.NotRunning: 'Not running',
-            QProcess.Starting: 'Starting',
-            QProcess.Running: 'Running',
-        }
-        state_name = states[state]
-        self.message(f"State changed: {state_name}")
 
     def process_finished(self):
         self.message("Process finished.")
@@ -443,11 +424,13 @@ class MenuManager(QGraphicsObject):
 
     def resolveExeFile(self, name):
         dir = self.resolveDir(name)
-
+        dirname = self.info[name]['dirname'].split('/')[-1]
         fileName = self.info[name]['filename'].split('/')[-1]
+        # print(dir.path()+ '/' + fileName + '.py')
+        # pyFile = QFile(dir.path() + '/' + fileName + '.py')
 
-        pyFile = QFile(dir.path() + '/' + fileName + '.py')
-        if pyFile.exists():
+        pyFile = QFile('..\\' + dirname + '\\' + fileName + '.py')
+        if pyFile:
             return pyFile.fileName()
 
         pywFile = QFile(dir.path() + '/' + fileName + '.pyw')
@@ -472,21 +455,24 @@ class MenuManager(QGraphicsObject):
         return '__QML not found__'
 
     def resolveDocUrl(self, name):
-        dirName = self.info[name]['dirname']
-        fileName = self.info[name]['filename']
+        dirname = self.info[name]['dirname']
+        filename = self.info[name]['filename']
 
-        return self.helpRootUrl + dirName.replace('/', '-') + '-' + fileName + '.html'
-
-    def resolveImageUrl(self, name):
-        return self.helpRootUrl + 'images/' + name
+        # return self.helpRootUrl + dirName.replace('/', '-') + '-' + fileName + '.html'
+        return '../' + dirname + '/' + name + '.txt'
+    def resolveImageUrl(self, name, dirname):
+        # print(self.helpRootUrl)
+        if dirname == 'distance':
+            return '../Interface/media/images/distance_img/BraceAnnotation_ManimCE_v0.15.1.png'
+        return '../' + dirname + '/' + name + '.png'
 
     def getHtml(self, name):
-        return self.getResource(self.resolveDocUrl(name))
+        return self.resolveDocUrl(name)
 
     def getImage(self, name):
         imageName = self.info[name]['image']
+        dirname = self.info[name]['dirname']
         fileName = self.info[name]['filename']
-        print(self.info[name])
         if self.info[name]['qml'] == 'true':
             fileName = 'qml-' + fileName.split('/')[-1]
 
@@ -494,13 +480,13 @@ class MenuManager(QGraphicsObject):
             print('Il n\'y a pas d\'images')
             imageName = fileName + '-example.png'
 
-            if self.getResource(self.resolveImageUrl(imageName)).isEmpty():
+            if self.getResource(self.resolveImageUrl(imageName, dirname)).isEmpty():
                 imageName = fileName + '.png'
 
-            if self.getResource(self.resolveImageUrl(imageName)).isEmpty():
+            if self.getResource(self.resolveImageUrl(imageName, dirname)).isEmpty():
                 imageName = fileName + 'example.png'
-
-        return self.getResource(self.resolveImageUrl(imageName))
+        # print(self.getRessource(self.resolveImageUrl(imageName, dirname)))
+        return self.resolveImageUrl(name, dirname)
 
     def createRootMenu(self, el):
         name = el.getAttribute('name')

@@ -1,0 +1,10 @@
+Le traitement des données acquises est un élément essentiel de la chaîne de
+fonctionnement d’un radar. L’objectif d’un radar est de détecter des cibles et sans
+traitement des données brutes cela est impossible. Il est garant du bon fonctionnement du radar ainsi que de la responsabilité des décisions qui peuvent suivre. Dans
+le cadre militaire si un radar ne fait pas correctement la différence entre un avion
+civil ou militaire cela peut avoir de graves conséquences par la suite. Ce maillon essentiel n’est pas à prendre à la légère. Nous avons pu reprendre des codes commencés
+par le groupe précédent. Vous pouvez les retrouver sur le GitHub du projet dans
+la branche "ObsHyper". Les changements et ajouts effectués sont sur la branche
+principale. Précédemment ils avaient développé des codes basiques de traitement de
+données radar avec des fonctions pas forcément liée entres-elles. C’est sur quoi nous
+avons travaillé.

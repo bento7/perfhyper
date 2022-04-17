@@ -5,7 +5,7 @@ import numpy as np
 
 class BraceAnnotation(Scene):
 
-    config.frame_size=(1920,1080)
+    config.frame_size=(1350,730)
 
     def construct(self):
         para = Text("Paramètres :",color=WHITE)
@@ -17,12 +17,12 @@ class BraceAnnotation(Scene):
         self.add(fsamp,para,delta_f,distance)
 
 
-        target = ImageMobject("manim/bonhomme-blanc_trans")
+        target = ImageMobject("../manim/bonhomme-blanc_trans")
         target.scale(0.3)
         target.to_edge(RIGHT, buff=0.5)
         target.to_edge(DOWN, buff=1)
 
-        antenna = ImageMobject("manim/antenne")
+        antenna = ImageMobject("../manim/antenne")
         antenna.scale(0.5)
         antenna.to_edge(LEFT, buff=0.5)
         antenna.to_edge(DOWN, buff=1)
