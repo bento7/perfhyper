@@ -6,7 +6,7 @@ PerfHyper est un projet qui s’inscrit dans la lignée du projet ObsHyper de l�
 
 Placez vous à la racine du projet et lancez la commande suivante pour lancer l'interface :
 ```bash
-/perfhyper >> python3 qtdemo/qtdemo.py
+/perfhyper >> python3 Interface/interface.py
 ```
 ![Image Text](https://github.com/bento7/perfhyper/blob/main/Documents-utiles/interface.png)
 
