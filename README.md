@@ -12,7 +12,7 @@ Placez vous à la racine du projet et lancez la commande suivante pour lancer l'
 
 Pour seulement traiter les données :
 ```bash
-/perfhyper >> python3 Post-Traitements/Chirp.py
+/perfhyper >> python3 Post_Traitements/Chirp.py
 ```
 ## MANIM
 [Manim](https://github.com/3b1b/manim) est une librairie servant à créer des images qui seront présentes au sein de l'interface. Elles seront nécessaires à l'affichage du résultat des mesures faites en temps réel lors de la démonstration de l'utilisation du RADAR. 
