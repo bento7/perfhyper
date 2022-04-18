@@ -8,6 +8,8 @@ Cette interface provient des exemples de la documentation PyQt5 que l'on a mis e
 
 ## Usage
 
+L'interface a été optimisée afin d'être utilisée en plein écran.
+
 Placez vous à la racine du projet et lancez la commande suivante pour lancer l'interface :
 ```bash
 /perfhyper >> python3 Interface/interface.py
