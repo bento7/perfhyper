@@ -82,9 +82,8 @@ class ExampleContent(DemoItem):
             self._prepared = False
 
     def loadDescription(self):
-        print(self._menu_manager.getHtml(self.name))
+        print("description = " +self._menu_manager.getHtml(self.name))
         contents = self._menu_manager.getHtml(self.name)#.data().decode('utf8')
-        print('CFAR = ' + self.name)
         # if contents == '':
         #     paragraphs = []
         # else:
@@ -99,22 +98,29 @@ class ExampleContent(DemoItem):
         #     description = self.extractTextFromParagraph(p)
         #     if self.isSummary(description):
         #         break
-        readme = QFile(contents)
+        # readme = QFile(contents)
+        #
+        # in_str = QTextStream(readme)
+        # in_str.setCodec("UTF-8")
+        #
+        # # Read in the number of wanted paragraphs.
+        # result = ''
+        # line = in_str.readLine()
+        # print(line)
+        # while True:
+        #     result += line + " "
+        #     line = in_str.readLine()
+        #     if in_str.atEnd():
+        #         break
+        # print(result)
+        content = ''
+        with open(contents, encoding='utf-8') as f:
+            intermediary = f.readlines()
 
-        in_str = QTextStream(readme)
-        in_str.setCodec("UTF-8")
-
-        # Read in the number of wanted paragraphs.
-        result = ''
-        line = in_str.readLine()
-        print(line)
-        while True:
-            result += line + " "
-            line = in_str.readLine()
-            if in_str.atEnd():
-                break
-        print(result)
-        return Colors.contentColor + result
+        for el in intermediary:
+            content += el
+        print(content)
+        return Colors.contentColor + content
 
         # return Colors.contentColor + description
 
@@ -159,12 +165,15 @@ class ExampleContent(DemoItem):
                 Colors.contentFont(), Colors.heading, 500, self)
         imgHeight = 340 - int(self.description.boundingRect().height()) + 50
 
-        self.screenshot = ImageItem(self._menu_manager.getImage(self.name), 600, imgHeight, self)
 
         # Place the items on screen.
         self.heading.setPos(0, 3)
         self.description.setPos(0, self.heading.pos().y() + self.heading.boundingRect().height() + 10)
-        self.screenshot.setPos(0, self.heading.pos().y() + self.heading.boundingRect().height() + 10)
+
+        cond = self._menu_manager.getImage(self.name)
+        if cond != False:
+            self.screenshot = ImageItem(self._menu_manager.getImage(self.name), 600, imgHeight, self)
+            self.screenshot.setPos(0, self.description.pos().y() + self.description.boundingRect().height() + 10)
 
     def boundingRect(self):
         return QRectF(0, 0, 500, 100)

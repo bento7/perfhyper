@@ -459,7 +459,7 @@ class MenuManager(QGraphicsObject):
         filename = self.info[name]['filename']
 
         # return self.helpRootUrl + dirName.replace('/', '-') + '-' + fileName + '.html'
-        return '../' + dirname + '/' + name + '.txt'
+        return '../' + dirname + '/' + filename + '.txt'
     def resolveImageUrl(self, name, dirname):
         # print(self.helpRootUrl)
         if dirname == 'distance':
@@ -472,21 +472,24 @@ class MenuManager(QGraphicsObject):
     def getImage(self, name):
         imageName = self.info[name]['image']
         dirname = self.info[name]['dirname']
-        fileName = self.info[name]['filename']
+        filename = self.info[name]['filename']
+        print(filename)
         if self.info[name]['qml'] == 'true':
-            fileName = 'qml-' + fileName.split('/')[-1]
+            fileName = 'qml-' + filename.split('/')[-1]
 
         if not imageName:
             print('Il n\'y a pas d\'images')
-            imageName = fileName + '-example.png'
-
-            if self.getResource(self.resolveImageUrl(imageName, dirname)).isEmpty():
-                imageName = fileName + '.png'
-
-            if self.getResource(self.resolveImageUrl(imageName, dirname)).isEmpty():
-                imageName = fileName + 'example.png'
+            # imageName = fileName + '-example.png'
+            #
+            # if self.getResource(self.resolveImageUrl(imageName, dirname)).isEmpty():
+            #     imageName = fileName + '.png'
+            #
+            # if self.getResource(self.resolveImageUrl(imageName, dirname)).isEmpty():
+            #     imageName = fileName + 'example.png'
+            return False
         # print(self.getRessource(self.resolveImageUrl(imageName, dirname)))
-        return self.resolveImageUrl(name, dirname)
+        print(self.resolveImageUrl(filename, dirname))
+        return self.resolveImageUrl(filename, dirname)
 
     def createRootMenu(self, el):
         name = el.getAttribute('name')
@@ -515,11 +518,11 @@ class MenuManager(QGraphicsObject):
 
         infoButtonsIn = self.score.insertMovie(name + ' -buttons')
         infoButtonsOut = self.score.insertMovie(name + ' -buttons -out')
-        self.createLowRightLeafButton("Documentation", 600,
-                MenuManager.DOCUMENTATION, infoButtonsIn, infoButtonsOut, None)
+        # self.createLowRightLeafButton("Documentation", 600,
+        #         MenuManager.DOCUMENTATION, infoButtonsIn, infoButtonsOut, None)
         if el.getAttribute('executable') != 'false':
-            self.createLowRightLeafButton("Launch", 405, MenuManager.LAUNCH,
-                    infoButtonsIn, infoButtonsOut, None)
+            self.createLowRightLeafButton("Launch", 600, MenuManager.LAUNCH,
+                    infoButtonsIn, infoButtonsOut, None)#405
             # self.text.setPos(1, 3)
         elif el.getAttribute('qml') == 'true':
             self.createLowRightLeafButton("Display", 405,

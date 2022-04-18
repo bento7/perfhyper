@@ -1,0 +1,9 @@
+La détection consiste à mettre en évidence les cibles potentielles, à partir du
+signal reçu et préalablement traité. Pour ce faire il faut être en mesure d’isoler les pics
+correspondants à des cibles du bruits environnant. La complexité de la manipulation
+est de réussir à faire ceci en évitant de provoquer de fausses alarmes dues au bruit.
+Pour ce faire, nous utilisons un seuil de détection ; lorsque ce seuil est dépassé nous
+considérons qu’il y a présence d’une cible. Néanmoins, puisqu’un bruit ou d’autres
+signaux peuvent interférer et eux aussi dépasser ce seuil, nous sommes confrontés
+à de fausses alarmes. Il faut donc une façon robuste de choisir le seuil de détection
+afin de limiter le taux de fausses alarmes, c’est ce que nous allons développer ici.

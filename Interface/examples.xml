@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <categories name="Projet PerfHyper">
   <category dirname="RADAR" name="Le RADAR">
+      <example filename="Chaine_fonctionnelle" name ="Chaine fonctionnelle" image="Chaine_fonctionnelle"/>
   </category>
   <category dirname="Utilisation" name="Animation Framework">
   </category>
