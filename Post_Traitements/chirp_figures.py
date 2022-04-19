@@ -4,13 +4,14 @@ from scipy import signal
 from affichage import *
 from radar import *
 from filtrage import *
+
 N = 10000
 # sample spacing
 T = 50.0 / 10000.0
 t = np.linspace(0.0, N*T, N, endpoint=False)
 
 ret1 = 6*np.pi
-ret2 = 10*np.pi
+ret2 = 6.2*np.pi
 
 sin= signal.chirp(t, f0=1, f1=40, t1=t[-1], method='linear')
 porte = np.heaviside(t, 1) - np.heaviside(t-2*np.pi,1)
@@ -25,7 +26,7 @@ sin1= 0.3*signal.chirp(t-ret1, f0=1, f1=40, t1=t[-1], method='linear')
 porte1 = np.heaviside(t-ret1,1) - np.heaviside(t-2*np.pi-ret1,1)
 
 
-sin2= 0.1*signal.chirp(t-ret2, f0=1, f1=40, t1=t[-1], method='linear')
+sin2= 0.3*signal.chirp(t-ret2, f0=1, f1=40, t1=t[-1], method='linear')
 porte2 = np.heaviside(t-ret2,1) - np.heaviside(t-2*np.pi-ret2,1)
 
 
@@ -53,9 +54,10 @@ ax[0].plot(t[0:7500], sig1[0:7500], label ="echo 1",color='royalblue')
 # ax[0].plot(t[0:7500], sig2[0:7500], label ="echo 2",color='royalblue')
 ax[0].grid()
 ax[0].set_yticks([])
-ax[0].set_xticks([0,ret1,ret2])
 ax[0].legend()
 ax[0].set(title = "Représentation temporelle du signal émis et des deux échos",ylabel='Amplitude (ua)')
+ax[0].set_xticks([0,ret1,ret2])
+ax[0].tick_params(labelrotation=45)
 ax[1].plot(t[0:7500], signal2[len(t)-1:17499], color='darkorange', label='émis')
 ax[1].plot(t[0:7500], signal0[len(t)-1:17499], label="echo 1",color='royalblue')
 # ax[1].plot(t[0:7500], signal1[len(t)-1:17499], label="echo 2",color='royalblue')
@@ -64,4 +66,6 @@ ax[1].set(title = "Représentation temporelle de l'intercorrélation des échos 
 ax[1].set_yticks([])
 ax[1].set_xticks([0,ret1,ret2])
 ax[1].legend()
+ax[1].tick_params(labelrotation=45)
+# plt.xticks(rotation=45)
 plt.show()

@@ -1,0 +1,2 @@
+Cette ambiguïté se manifeste lorsque le temps que met le signal pour faire l'aller-retour avec la cible est supérieur au temps d'écoute entre deux impulsions. La fréquence f de répétition est donc déterminante pour la portée du radar. En considérant le temps d'aller retour, la distance maximale non ambigüe est c/(2*f)
+(crédit image radartutoriel.eu)

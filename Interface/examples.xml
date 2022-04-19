@@ -13,10 +13,9 @@
   <category dirname="exigence" name="Exigences de PERFHYPER">
       <example filename="diag" name="Diagramme des exigences" image="diag"/>
       <example filename="portee" name="Portée"/>
-      <example filename="resol_sp" name="Résolution Spatiale"/>
-      <example filename="resol_ang" name="Résolution Angulaire"/>
-      <example filename="ouvert" name="Ouverture Angulaire"/>
-      <example filename="ambig" name="Ambiguïté en distance"/>
+      <example filename="resol_sp" name="Résolution Spatiale" image="resol_sp"/>
+      <example filename="resol_ang" name="Résolution Angulaire" image="resol_ang"/>
+      <example filename="ambig" name="Ambiguïté en distance" image="ambig"/>
   </category>
   <category dirname="traitements_numeriques" name="Traitements numériques">
     <example filename="CFAR" name="CFAR" />
@@ -26,7 +25,5 @@
     <example filename="Acquisition" name="Acquisition" image="Acquisition"/>
 <!--    <example filename=""-->
   </category>
-
-
 
 </categories>
