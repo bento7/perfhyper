@@ -162,7 +162,7 @@ class ExampleContent(DemoItem):
         # Create the items.
         self.heading = HeadingItem(self.name, self)
         self.description = DemoTextItem(self.loadDescription(),
-                Colors.contentFont(), Colors.heading, 500, self)
+                Colors.contentFont(), Colors.heading, 700, self)
         imgHeight = 340 - int(self.description.boundingRect().height()) + 50
 
 
@@ -172,7 +172,7 @@ class ExampleContent(DemoItem):
 
         cond = self._menu_manager.getImage(self.name)
         if cond != False:
-            self.screenshot = ImageItem(self._menu_manager.getImage(self.name), 600, imgHeight, self)
+            self.screenshot = ImageItem(cond, 600, imgHeight, self, adjustSize = True, scale=0.5)
             self.screenshot.setPos(0, self.description.pos().y() + self.description.boundingRect().height() + 10)
 
     def boundingRect(self):

@@ -2,21 +2,31 @@
 <categories name="Projet PerfHyper">
   <category dirname="RADAR" name="Le RADAR">
       <example filename="Chaine_fonctionnelle" name ="Chaine fonctionnelle" image="Chaine_fonctionnelle"/>
-  </category>
-  <category dirname="Utilisation" name="Animation Framework">
-  </category>
- <category dirname="K6 Impulser Software" name="Acquisition">
-    <example filename="animation" name="Animation" />
+      <example filename="generator" name="Générateur d'ondes" image="generator"/>
+      <example filename="generator2" name="Générateur de signaux vectoriels" image="generator2"/>
+      <example filename="UP_DOWN" name="UP/DOWN convertisseur" image="UP_DOWN"/>
+      <example filename="antenne" name="Antenne" image="antenne"/>
+      <example filename="logiciel" name="Logiciel" image="logiciel"/>
+      <example filename="fichier" name="Fichiers générés" image="fichier"/>
 
+  </category>
+  <category dirname="exigence" name="Exigences de PERFHYPER">
+      <example filename="diag" name="Diagramme des exigences" image="diag"/>
+      <example filename="portee" name="Portée"/>
+      <example filename="resol_sp" name="Résolution Spatiale"/>
+      <example filename="resol_ang" name="Résolution Angulaire"/>
+      <example filename="ouvert" name="Ouverture Angulaire"/>
+      <example filename="ambig" name="Ambiguïté en distance"/>
+  </category>
+  <category dirname="traitements_numeriques" name="Traitements numériques">
+    <example filename="CFAR" name="CFAR" />
+    <example filename="corr" name="Exemples de résultats à traiter" image="corr"/>
   </category>
   <category dirname="distance" name="Mesure de la distance">
     <example filename="Acquisition" name="Acquisition" image="Acquisition"/>
 <!--    <example filename=""-->
-
   </category>
 
-  <category dirname="traitements_numeriques" name="Traitements numériques">
-    <example filename="CFAR" name="CFAR" />
-  </category>
+
 
 </categories>
