@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from Post_Traitements import util as u
-
+import os
 
 class chirp():
 
@@ -21,7 +21,7 @@ class chirp():
         """
         fonction servant à normaliser les amplitudes du signal émis et reçu pour pouvoir
         les comparer correctement. Leurs amplitudes diffèrent grandement initialement.
-        :para num: Numéro du chirp envoyé dans la salve
+        :param num: Numéro du chirp envoyé dans la salve
         """
         Msent_norm = self.Msent[num].reshape((-1, 1))[:, 0] / max(self.Msent[num].reshape((-1, 1))[:, 0])
         Mrec_norm = self.Mrec[num].reshape((-1, 1))[:, 0] / max(self.Mrec[num].reshape((-1, 1))[:, 0])
@@ -29,6 +29,9 @@ class chirp():
 
 
     def correlate(self,num):
+        """
+        Self Corrélation du signal émis et inter corrélation avec le signal reçu
+        """
         Msent, Mrec = self.norm(num)
         selfcor = np.correlate(Msent,Msent,'full')*self.T
         intercor = np.correlate(Mrec,Msent,'full')*self.T
@@ -78,7 +81,11 @@ class chirp():
         return idx_pics
 
     def distance(self,s0,s1):
-        interval = u.rising_edge(s1)-u.rising_edge(s0)
+        nb_entrainement = 0.08*len(s0)
+        nb_garde = nb_entrainement//4
+        taux_fa = 1e-5
+        print(self.CFAR(s1, nb_entrainement, nb_garde, taux_fa))
+        interval = self.CFAR(s1, nb_entrainement, nb_garde, taux_fa)-self.CFAR(s0, nb_entrainement, nb_garde, taux_fa)
         dist = interval*self.T*3e8/2
         # f = open("manim/distance.txt", "w")
         # str = str(self.fsamp) + " " + str()
@@ -87,8 +94,7 @@ class chirp():
         return dist.round(3)
 
 if __name__ == '__main__':
-
-    chirp500 = chirp(15000e6, '../data/200Hz_10cm.txt', 3.296e-7)
+    chirp500 = chirp(15000e6, '../data/200Hz_10cm.txt', 4.296e-7)
     MatrixSe, MatrixSr = chirp500.norm(0)
     signal0, signal1 = chirp500.correlate(0)
     distance = chirp500.distance(signal0,signal1)

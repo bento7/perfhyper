@@ -1,0 +1,1 @@
+L'affichage ci-dessous permet de générer l'onde que l'on souhaite selon le cas d'utilisation du radar. 

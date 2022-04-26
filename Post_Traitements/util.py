@@ -27,8 +27,8 @@ def SignalToMatrix(signal, Fsamp, Trec):
     """
     signalCopy = signal.copy()
     N = int(Trec * Fsamp)
-    print('N =' + str(N))
-    print('len sig ' + str(len(signal)))
+    # print('N =' + str(N))
+    # print('len sig ' + str(len(signal)))
 
     Npuls = int(len(signal) // N)
     M = np.zeros((Npuls, N))

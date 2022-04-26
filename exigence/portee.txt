@@ -1,3 +1,2 @@
 La portée d’un RADAR est une caractéristique prépondérante, elle va notamment discriminer les solutions utilisées en fonction du contexte.
-La portée est étroitement liée à la notion de puissance, qu’elle soit émise ou reçue. Pour être plus précis, C’est un seuil en dessous duquel le signal n’est pas
-détecté, on est alors hors rang. Ce seuil est propre à chaque matériel et la puissance reçue dépend de nombreux paramètres
+La portée est étroitement liée à la notion de puissance, qu’elle soit émise ou reçue. Pour être plus précis, C’est un seuil en dessous duquel le signal n’est pas détecté, on est alors hors-rang. Ce seuil est propre à chaque matériel et la puissance reçue dépend de nombreux paramètres.

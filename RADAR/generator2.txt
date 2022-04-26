@@ -1,0 +1,1 @@
+Le générateur de signaux en bande de base RS AFQ 100B est ensuite couplé au générateur de signaux vectoriels RS SMBV 100 A qui transpose les signaux en bande de base en signal RF. Il fait office de transition avec le UP/DOWN converter.

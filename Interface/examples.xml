@@ -2,9 +2,10 @@
 <categories name="Projet PerfHyper">
   <category dirname="RADAR" name="Le RADAR">
       <example filename="Chaine_fonctionnelle" name ="Chaine fonctionnelle" image="Chaine_fonctionnelle"/>
-      <example filename="generator" name="Générateur d'ondes" image="generator"/>
-      <example filename="generator2" name="Générateur de signaux vectoriels" image="generator2"/>
-      <example filename="UP_DOWN" name="UP/DOWN convertisseur" image="UP_DOWN"/>
+      <example filename="generator" name="Générateur d'ondes" image="generator_redim"/>
+      <example filename="onde"  name="Génération d'ondes" image="onde"/>
+      <example filename="generator2" name="Générateur de signaux vectoriels" image="generator2_redim"/>
+      <example filename="UP_DOWN" name="UP/DOWN convertisseur" image="UP_DOWN_redim"/>
       <example filename="antenne" name="Antenne" image="antenne"/>
       <example filename="logiciel" name="Logiciel" image="logiciel"/>
       <example filename="fichier" name="Fichiers générés" image="fichier"/>
@@ -18,7 +19,7 @@
       <example filename="ambig" name="Ambiguïté en distance" image="ambig"/>
   </category>
   <category dirname="traitements_numeriques" name="Traitements numériques">
-    <example filename="CFAR" name="CFAR" />
+    <example filename="CFAR" name="CFAR" image="CFAR"/>
     <example filename="corr" name="Exemples de résultats à traiter" image="corr"/>
   </category>
   <category dirname="distance" name="Mesure de la distance">

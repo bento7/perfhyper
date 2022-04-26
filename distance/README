@@ -1,6 +1,5 @@
 La mesure de la distance cible <-> radar se calcule grâce au temps de parcours de l'onde envoyée.
 
-
 Le logiciel K6 Impulser nous permet de contrôler le radar et de donc de traiter ensuite les données acquises.
 
 Appuyez sur le bouton "ACQUISITION" pour effectuer une mesure de distance.

@@ -1,0 +1,1 @@
+Les fichiers générés par le logiciel d'acquisition sont des fichiers textes. Ils sont composés de 2 colonnes qui correspondent respectivement au signal émis et au signal reçu. Ils sont codés sur 8 bits donc ont des amplitudes de 0 à 255.

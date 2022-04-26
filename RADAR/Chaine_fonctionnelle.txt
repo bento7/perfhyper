@@ -1,3 +1,2 @@
-La chaîne fonctionnelle structurelle peut se résumer au schéma ci-dessous. Un logiciel lié au générateur sert à paramétrer le signal que nous voulons émettre. L’ordinateur est équipé du logiciel adéquat nous permettant
-de visualiser le signal après passage par les antennes.
+La chaîne fonctionnelle structurelle peut se résumer au schéma ci-dessous. Un logiciel lié au générateur sert à paramétrer le signal que nous voulons émettre. L’ordinateur est équipé du logiciel adéquat nous permettant de visualiser le signal après passage par les antennes.
 Nous remarquons un splitter qui permet de transférer le flux de données du signal émis vers la carte d’acquisition. Il duplique le signal émis et l’envoie directement au sein du logiciel d’acquisition. Les données sont sauvegardées dans un fichier texte.

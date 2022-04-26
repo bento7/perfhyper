@@ -658,15 +658,15 @@ class MenuManager(QGraphicsObject):
         buttonIn.setStartValue(QPointF(-iw, Colors.contentStartY + Colors.contentHeight - 35))
         buttonIn.setKeyValueAt(0.5, QPointF(-iw, Colors.contentStartY + Colors.contentHeight - 35))
         buttonIn.setKeyValueAt(0.7, QPointF(xOffset, Colors.contentStartY + Colors.contentHeight - 35))
-        buttonIn.setEndValue(QPointF(xOffset, Colors.contentStartY + Colors.contentHeight - 26))
+        buttonIn.setEndValue(QPointF(xOffset, Colors.contentStartY + Colors.contentHeight +20))
         movieIn.append(buttonIn)
 
         # Create out-animation.
         buttonOut = DemoItemAnimation(button, DemoItemAnimation.ANIM_OUT)
         buttonOut.setHideOnFinished(True)
         buttonOut.setDuration(400)
-        buttonOut.setStartValue(QPointF(xOffset, Colors.contentStartY + Colors.contentHeight - 26))
-        buttonOut.setEndValue(QPointF(-iw, Colors.contentStartY + Colors.contentHeight - 26))
+        buttonOut.setStartValue(QPointF(xOffset, Colors.contentStartY + Colors.contentHeight +20))
+        buttonOut.setEndValue(QPointF(-iw, Colors.contentStartY + Colors.contentHeight +20))
         movieOut.append(buttonOut)
 
         if movieShake is not None:
@@ -695,7 +695,7 @@ class MenuManager(QGraphicsObject):
         anim.setStartValue(QPointF(sw, Colors.contentStartY + Colors.contentHeight - 35))
         anim.setKeyValueAt(0.5, QPointF(sw, Colors.contentStartY + Colors.contentHeight - 35))
         anim.setKeyValueAt(0.7, QPointF(xOffset + 535, Colors.contentStartY + Colors.contentHeight - 35))
-        anim.setEndValue(QPointF(xOffset + 535, Colors.contentStartY + Colors.contentHeight - 26))
+        anim.setEndValue(QPointF(xOffset + 535, Colors.contentStartY + Colors.contentHeight + 20))
         movieIn.append(anim)
 
         # Create out-animation.
@@ -703,7 +703,7 @@ class MenuManager(QGraphicsObject):
         anim.setHideOnFinished(True)
         anim.setDuration(400)
         anim.setStartValue(QPointF(xOffset + 535, Colors.contentStartY + Colors.contentHeight - 26))
-        anim.setEndValue(QPointF(sw, Colors.contentStartY + Colors.contentHeight - 26))
+        anim.setEndValue(QPointF(sw, Colors.contentStartY + Colors.contentHeight + 20))
         movieOut.append(anim)
 
     def createLowRightLeafButton(self, label, xOffset, type, movieIn, movieOut, movieShake):
@@ -725,14 +725,14 @@ class MenuManager(QGraphicsObject):
         anim.setKeyValueAt(0.40, QPointF(xOffset, Colors.contentStartY + Colors.contentHeight - 35))
         anim.setKeyValueAt(0.45, QPointF(xOffset + 5, Colors.contentStartY + Colors.contentHeight - 35))
         anim.setKeyValueAt(0.50, QPointF(xOffset, Colors.contentStartY + Colors.contentHeight - 35))
-        anim.setEndValue(QPointF(xOffset, Colors.contentStartY + Colors.contentHeight - 26))
+        anim.setEndValue(QPointF(xOffset, Colors.contentStartY + Colors.contentHeight + 20))
         movieIn.append(anim)
 
         # Create out-animation.
         anim = DemoItemAnimation(item, DemoItemAnimation.ANIM_OUT)
         anim.setHideOnFinished(True)
         anim.setDuration(300)
-        anim.setStartValue(QPointF(xOffset, Colors.contentStartY + Colors.contentHeight - 26))
+        anim.setStartValue(QPointF(xOffset, Colors.contentStartY + Colors.contentHeight + 20))
         anim.setEndValue(QPointF(xOffset, sh))
         movieOut.append(anim)
 

@@ -6,14 +6,18 @@ import numpy as np
 class BraceAnnotation(Scene):
 
     config.frame_size=(1350,730)
+    def __init__(self,distance,deltaf):
+        self.distance=distance
+        self.deltaf=deltaf
+
 
     def construct(self):
         para = Text("Paramètres :",color=WHITE)
         para.to_edge(UP, buff=0.5).to_edge(LEFT, buff=0.5).scale(0.8)
 
         fsamp = MathTex("f_{samp} = 15GHz",color=WHITE).to_edge(UP, buff=1.5).to_edge(LEFT, buff=1.5).scale(0.8)
-        delta_f = MathTex("\Delta f_{chirp} = 200MHz",color=WHITE).to_edge(UP, buff=2).to_edge(LEFT, buff=1.5).scale(0.8)
-        distance = MathTex("d = 1.7m",color=ORANGE).next_to(np.array([-1.5, -0.5, 0])).scale(2)
+        delta_f = MathTex("\Delta f_{chirp} = "+str(self.deltaf)+"MHz",color=WHITE).to_edge(UP, buff=2).to_edge(LEFT, buff=1.5).scale(0.8)
+        distance = MathTex("d = "+str(self.distance)+"m",color=ORANGE).next_to(np.array([-1.5, -0.5, 0])).scale(2)
         self.add(fsamp,para,delta_f,distance)
 
 
